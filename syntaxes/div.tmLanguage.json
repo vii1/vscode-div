@@ -1,0 +1,54 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "DIV",
+	"patterns": [
+		{
+			"match": "(?i)\\b(program|setup_program|process|function)\\s+([_#ªº$×£Øøa-zñçæâäàåáêëèéîïìíôöòóûüùúÿ][_#ªº$×£Øøa-zñçæâäàåáêëèéîïìíôöòóûüùúÿ0-9]*)",
+			"captures": {
+				"1": { "name": "keyword.control.div" },
+				"2": { "name": "entity.name.function.div" }
+			}
+		},
+		{
+			"name":"storage.type.div",
+			"match": "(?i)\\b(struct|string|byte|word|int)\\b"
+		},
+		{
+			"name": "keyword.control.div",
+			"match": "(?i)\\b(program|const|global|local|begin|end|process|private|import|setup_program|compiler_options|function|until|else|return|from|to|step|if|loop|while|repeat|for|switch|case|default|frame|break|continue|clone|debug|dup|or|xor|and|neg|pointer|offset|not|mod|_eq|_ne|_gt|_lt|_le|_ge|sizeof|type|id|whoami)\\b"
+		},
+		{
+			"name": "string.quoted.double.div",
+			"begin": "\"",
+			"end": "\""
+		},
+		{
+			"name": "string.quoted.single.div",
+			"begin": "'",
+			"end": "'"
+		},
+		{
+			"name": "keyword.operator.div",
+			"match": "(>>=|<<=|\\[|\\]|:=|>>|<<|\\|\\||\\^\\^|&&|\\^|\\+\\+|--|==|<>|!=|<=|=<|>=|=>|->|\\.\\.|\\+=|-=|\\*=|/=|%=|&=|\\|=|\\^=|[-;:,=()|&!+*/%<>.])"
+		},
+		{
+			"name": "constant.numeric.div",
+			"match": "\\b[0-9]+\\b"
+		},
+		{
+			"name": "constant.language.div",
+			"match": "(?i)(?<!\\.|->)\\b(m320x200|m320x240|m320x400|m360x240|m360x360|m376x282|m640x400|m640x480|m800x600|m1024x768|true|false|min_int|max_int|pi|s_kill|s_wakeup|s_sleep|s_freeze|s_kill_tree|s_wakeup_tree|s_sleep_tree|s_freeze_tree|all_text|all_drawing|all_sound|g_wide|g_height|g_x_center|g_y_center|c_screen|c_scroll|c_m7|c_m8|partial_dump|complete_dump|no_restore|partial_restore|complete_restore|c_0|c_1|c_2|c_3|c_4|c_5|c_6|c_7|c_8|c_9|_max_process|_extended_conditions|_simple_conditions|_case_sensitive|_ignore_errors|_free_sintax|_no_check|_no_strfix|_no_optimization|_no_range_check|_no_id_check|_no_null_check|seek_set|seek_cur|seek_end|_normal|_hidden|_system|_volid|_subdir|fast_mixer|quality_mixer|sound_bits_8|sound_bits_16|_esc|_f1|_f2|_f3|_f4|_f5|_f6|_f7|_f8|_f9|_f10|_f11|_f12|_prn_scr|_scroll_lock|_wave|_1|_2|_3|_4|_5|_6|_7|_8|_9|_0|_minus|_plus|_backspace|_tab|_q|_w|_e|_r|_t|_y|_u|_i|_o|_p|_l_brachet|_r_brachet|_enter|_caps_lock|_a|_s|_d|_f|_g|_h|_j|_k|_l|_semicolon|_apostrophe|_backslash|_l_shift|_z|_x|_c|_v|_b|_n|_m|_comma|_point|_slash|_r_shift|_control|_alt|_space|_ins|_home|_pgup|_del|_end|_pgdn|_up|_down|_left|_right|_num_lock|_c_backslash|_c_asterisk|_c_minus|_c_home|_c_up|_c_pgup|_c_left|_c_center|_c_right|_c_end|_c_down|_c_pgdn|_c_ins|_c_del|_c_plus|_c_enter)\\b"
+		},
+		{
+			"name": "support.function.div",
+			"match": "(?i)\\b(signal|key|load_pal|load_fpg|start_scroll|stop_scroll|out_region|graphic_info|collision|get_id|get_distx|get_disty|get_angle|get_dist|fade|load_fnt|write|write_int|delete_text|move_text|unload_fpg|rand|define_region|xput|put|put_screen|map_xput|map_put|put_pixel|get_pixel|map_put_pixel|map_get_pixel|get_point|clear_screen|save|load|set_mode|load_pcm|unload_pcm|sound|stop_sound|change_sound|set_fps|start_fli|frame_fli|end_fli|reset_fli|system|refresh_scroll|fget_dist|fget_angle|play_cd|stop_cd|is_playing_cd|start_mode7|stop_mode7|advance|abs|fade_on|fade_off|rand_seed|sqrt|pow|map_block_copy|move_scroll|near_angle|let_me_alone|exit|roll_palette|get_real_point|get_joy_button|get_joy_position|convert_palette|load_map|reset_sound|unload_map|unload_fnt|set_volume|unload_wav|load_wav|load_pcx|unload_pcx|set_color|net_join_game|net_get_games|stop_mode8|xadvance|char|path_find|path_line|path_free|new_map|load_wld|start_mode8|go_to_flag|set_sector_height|get_sector_height|set_point_m8|get_point_m8|set_fog|set_sector_texture|get_sector_texture|set_wall_texture|get_wall_texture|set_env_color|strcpy|strcat|strlen|strcmp|strchr|strstr|strset|upper|lower|strdel|screen_copy|qsort|load_song|unload_song|song|stop_song|set_song_pos|get_song_pos|get_song_line|is_playing_sound|is_playing_song|fopen|fclose|fread|fwrite|fseek|ftell|filelength|flush|get_dirinfo|get_fileinfo|getdrive|setdrive|chdir|mkdir|remove|disk_free|memory_free|ignore_error|save_pcx|sin|cos|tan|asin|acos|atan|atan2|draw|delete_draw|move_draw|save_map|write_in_map|calculate|itoa|change_channel|malloc|free|encode|encode_file|decode_file|compress_file|uncompress_file|find_color|load_screen|force_pal)\\b(?=(\\s*\\())"
+		},
+		{
+			"name": "variable.other.div",
+			"match": "(?i)\\b[_#ªº$×£Øøa-zñçæâäàåáêëèéîïìíôöòóûüùúÿ][_#ªº$×£Øøa-zñçæâäàåáêëèéîïìíôöòóûüùúÿ0-9]*\\b"
+		}
+	],
+	"repository": {
+	},
+	"scopeName": "source.div"
+}
