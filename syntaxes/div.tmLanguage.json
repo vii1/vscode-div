@@ -3,6 +3,13 @@
 	"name": "DIV",
 	"patterns": [
 		{
+			"include": "#comment-block"
+		},
+		{
+			"name": "comment.line.double-dash.div",
+			"match": "//[^\\r\\n]*"
+		},
+		{
 			"match": "(?i)\\b(program|setup_program|process|function)\\s+([_#ªº$×£Øøa-zñçæâäàåáêëèéîïìíôöòóûüùúÿ][_#ªº$×£Øøa-zñçæâäàåáêëèéîïìíôöòóûüùúÿ0-9]*)",
 			"captures": {
 				"1": { "name": "keyword.control.div" },
@@ -49,6 +56,14 @@
 		}
 	],
 	"repository": {
+		"comment-block": {
+			"name": "comment.block.div",
+			"begin": "/\\*",
+			"end": "\\*/",
+			"patterns": [{
+				"include": "#comment-block"
+			}]
+		}
 	},
 	"scopeName": "source.div"
 }
