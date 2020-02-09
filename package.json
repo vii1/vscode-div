@@ -3,6 +3,15 @@
     "displayName": "DIV",
     "description": "Language support for DIV Games Studio",
     "version": "0.1.0",
+    "icon": "icon.png",
+    "author": {
+        "name": "vii",
+        "email": "vii@divero.net"
+    },
+    "repository": {
+        "url": "https://github.com/vii1/vscode-div.git"
+    },
+    "publisher": "vscode-div",
     "engines": {
         "vscode": "^1.42.0"
     },
