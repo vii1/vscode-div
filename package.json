@@ -2,7 +2,7 @@
     "name": "div",
     "displayName": "DIV",
     "description": "Language support for DIV Games Studio",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "engines": {
         "vscode": "^1.42.0"
     },
