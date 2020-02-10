@@ -20,6 +20,9 @@ None.
 
 ## Known Issues
 
+ * `COMPILER_OPTIONS _free_sintax` _(sic)_ is not supported. You shouldn't ever use it, anyway.
+ * `COMPILER_OPTIONS _case_sensitive` is not supported at the moment.
+
 Let me know at https://github.com/vii1/vscode-div/issues if you encounter any issues.
 
 ## Release Notes
