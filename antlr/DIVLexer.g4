@@ -1,31 +1,31 @@
 lexer grammar DIVLexer;
 
-A: [Aa] ;
-B: [Bb] ;
-C: [Cc] ;
-D: [Dd] ;
-E: [Ee] ;
-F: [Ff] ;
-G: [Gg] ;
-H: [Hh] ;
-I: [Ii] ;
-J: [Jj] ;
-K: [Kk] ;
-L: [Ll] ;
-M: [Mm] ;
-N: [Nn] ;
-O: [Oo] ;
-P: [Pp] ;
-Q: [Qq] ;
-R: [Rr] ;
-S: [Ss] ;
-T: [Tt] ;
-U: [Uu] ;
-V: [Vv] ;
-W: [Ww] ;
-X: [Xx] ;
-Y: [Yy] ;
-Z: [Zz] ;
+fragment A: [Aa] ;
+fragment B: [Bb] ;
+fragment C: [Cc] ;
+fragment D: [Dd] ;
+fragment E: [Ee] ;
+fragment F: [Ff] ;
+fragment G: [Gg] ;
+fragment H: [Hh] ;
+fragment I: [Ii] ;
+fragment J: [Jj] ;
+fragment K: [Kk] ;
+fragment L: [Ll] ;
+fragment M: [Mm] ;
+fragment N: [Nn] ;
+fragment O: [Oo] ;
+fragment P: [Pp] ;
+fragment Q: [Qq] ;
+fragment R: [Rr] ;
+fragment S: [Ss] ;
+fragment T: [Tt] ;
+fragment U: [Uu] ;
+fragment V: [Vv] ;
+fragment W: [Ww] ;
+fragment X: [Xx] ;
+fragment Y: [Yy] ;
+fragment Z: [Zz] ;
 
 PROGRAM:	        P R O G R A M ;
 CONST:	            C O N S T ;
@@ -122,7 +122,7 @@ StringLiteral   :   '"' ( '""' | ~('"'|'\r'|'\n') )* '"'
 
 fragment HEX_DIGIT: [0-9a-fA-F] ;
 
-Identifier  :   ID_LETTER ( ID_LETTER | DIGIT )+
+Identifier  :   ID_LETTER ( ID_LETTER | DIGIT )*
             ;
 
 fragment DIGIT: [0-9] ;
