@@ -5,7 +5,14 @@ TESTFILE=r:\Tokenkai.prg
 	-mkdir out >NUL 2>NUL
 	-mkdir out\class >NUL 2>NUL
 
-all: classes .SYMBOLIC
+all: classes js .SYMBOLIC
+
+js: DIVLexer.g4 DIVParser.g4 .SYMBOLIC
+	antlr4 -o out -Dlanguage=JavaScript DIVLexer.g4
+	antlr4 -o out -Dlanguage=JavaScript DIVParser.g4
+	copy /y out\DIVLexer.js ..\src
+	copy /y out\DIVParser.js ..\src
+	copy /y out\DIVParserListener.js ..\src
 
 out\DIVLexer.java: DIVLexer.g4
 	antlr4 -o out DIVLexer.g4

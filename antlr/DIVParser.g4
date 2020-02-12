@@ -22,16 +22,14 @@ declLocal: LOCAL SEMICOLON* declVariable*;
 
 declPrivate: PRIVATE SEMICOLON* declVariable*;
 
-declVariable: STRUCT (pointerDecl sc
-                     | Identifier structArraySizeDecl? structBody (ASSIGN initArray)? SEMICOLON*
+declVariable: STRUCT ( pointerDecl sc
+                     | Identifier arraySizeDecl? structBody (ASSIGN initArray)? SEMICOLON*
                      )
             | STRING stringVarDecl (COMMA stringVarDecl)* sc
             | BYTE varDecl (COMMA varDecl)* sc
             | WORD varDecl (COMMA varDecl)* sc
             | INT? varDecl (SEMICOLON|COMMA)+
             ;
-
-structArraySizeDecl: LBRACKET constant (COMMA constant (COMMA constant)?)? RBRACKET;
 
 arraySizeDecl: LBRACKET (constant (COMMA constant (COMMA constant)?)?)? RBRACKET;
 
@@ -47,7 +45,7 @@ pointerDecl : POINTER pointerSuffix (ASSIGN constant)? (COMMA POINTER? pointerSu
 
 initArray: initElemArray? (COMMA initElemArray?)*;
 
-initElemArray: constant | DUP LPAREN initElemArray? (COMMA initElemArray?)* RPAREN;
+initElemArray: constant (DUP LPAREN initElemArray? (COMMA initElemArray?)* RPAREN)?;
 
 structBody: SEMICOLON* declVariable* END;
 
@@ -75,19 +73,19 @@ statement   :   returnSt
 
 returnSt: RETURN ( LPAREN exp? RPAREN)? sc;
 
-ifSt: IF LPAREN cond RPAREN statement* (ELSE statement*)? END;
+ifSt: IF LPAREN condition RPAREN statement* (ELSE statement*)? END;
 
 loopSt: LOOP statement* END;
 
-whileSt: WHILE LPAREN cond RPAREN statement* END;
+whileSt: WHILE LPAREN condition RPAREN statement* END;
 
-repeatSt: REPEAT statement* UNTIL LPAREN cond RPAREN;
+repeatSt: REPEAT statement* UNTIL LPAREN condition RPAREN;
 
 fromSt: FROM Identifier ASSIGN constant TO constant (STEP constant)? sc statement* END;
 
 forSt: FOR LPAREN (exp (COMMA exp)*)? SEMICOLON (exp (COMMA exp)*)? SEMICOLON (exp (COMMA exp)*)? RPAREN statement* END;
 
-switchSt: SWITCH LPAREN cond RPAREN SEMICOLON*
+switchSt: SWITCH LPAREN condition RPAREN SEMICOLON*
             ( CASE exp (RANGE exp)? (COMMA exp (RANGE exp)?)* sc statement* END
             | DEFAULT sc statement* END
             )*
@@ -105,7 +103,7 @@ cloneSt: CLONE statement* END;
 
 sc: SEMICOLON (SEMICOLON|COMMA)*;
 
-cond: exp;
+condition: exp;
 
 constant: exp;
 
