@@ -24,6 +24,8 @@ import { VocabularyImpl } from "antlr4ts/VocabularyImpl";
 import * as Utils from "antlr4ts/misc/Utils";
 
 import { DIVParserListener } from "./DIVParserListener";
+import { DIVParserVisitor } from "./DIVParserVisitor";
+
 
 export class DIVParser extends Parser {
 	public static readonly PROGRAM = 1;
@@ -4270,6 +4272,14 @@ export class FileContext extends ParserRuleContext {
 			listener.exitFile(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: DIVParserVisitor<Result>): Result {
+		if (visitor.visitFile) {
+			return visitor.visitFile(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -4329,6 +4339,14 @@ export class CompilerOptionsContext extends ParserRuleContext {
 			listener.exitCompilerOptions(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: DIVParserVisitor<Result>): Result {
+		if (visitor.visitCompilerOptions) {
+			return visitor.visitCompilerOptions(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -4356,6 +4374,14 @@ export class DeclProgramContext extends ParserRuleContext {
 			listener.exitDeclProgram(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: DIVParserVisitor<Result>): Result {
+		if (visitor.visitDeclProgram) {
+			return visitor.visitDeclProgram(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -4379,6 +4405,14 @@ export class DeclImportContext extends ParserRuleContext {
 	public exitRule(listener: DIVParserListener): void {
 		if (listener.exitDeclImport) {
 			listener.exitDeclImport(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: DIVParserVisitor<Result>): Result {
+		if (visitor.visitDeclImport) {
+			return visitor.visitDeclImport(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -4448,6 +4482,14 @@ export class DeclConstContext extends ParserRuleContext {
 			listener.exitDeclConst(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: DIVParserVisitor<Result>): Result {
+		if (visitor.visitDeclConst) {
+			return visitor.visitDeclConst(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -4486,6 +4528,14 @@ export class DeclGlobalContext extends ParserRuleContext {
 	public exitRule(listener: DIVParserListener): void {
 		if (listener.exitDeclGlobal) {
 			listener.exitDeclGlobal(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: DIVParserVisitor<Result>): Result {
+		if (visitor.visitDeclGlobal) {
+			return visitor.visitDeclGlobal(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -4528,6 +4578,14 @@ export class DeclLocalContext extends ParserRuleContext {
 			listener.exitDeclLocal(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: DIVParserVisitor<Result>): Result {
+		if (visitor.visitDeclLocal) {
+			return visitor.visitDeclLocal(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -4566,6 +4624,14 @@ export class DeclPrivateContext extends ParserRuleContext {
 	public exitRule(listener: DIVParserListener): void {
 		if (listener.exitDeclPrivate) {
 			listener.exitDeclPrivate(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: DIVParserVisitor<Result>): Result {
+		if (visitor.visitDeclPrivate) {
+			return visitor.visitDeclPrivate(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -4647,6 +4713,14 @@ export class DeclVariableContext extends ParserRuleContext {
 			listener.exitDeclVariable(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: DIVParserVisitor<Result>): Result {
+		if (visitor.visitDeclVariable) {
+			return visitor.visitDeclVariable(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -4686,6 +4760,14 @@ export class ArraySizeDeclContext extends ParserRuleContext {
 	public exitRule(listener: DIVParserListener): void {
 		if (listener.exitArraySizeDecl) {
 			listener.exitArraySizeDecl(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: DIVParserVisitor<Result>): Result {
+		if (visitor.visitArraySizeDecl) {
+			return visitor.visitArraySizeDecl(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -4728,6 +4810,14 @@ export class StringVarDeclContext extends ParserRuleContext {
 			listener.exitStringVarDecl(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: DIVParserVisitor<Result>): Result {
+		if (visitor.visitStringVarDecl) {
+			return visitor.visitStringVarDecl(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -4761,6 +4851,14 @@ export class VarDeclContext extends ParserRuleContext {
 	public exitRule(listener: DIVParserListener): void {
 		if (listener.exitVarDecl) {
 			listener.exitVarDecl(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: DIVParserVisitor<Result>): Result {
+		if (visitor.visitVarDecl) {
+			return visitor.visitVarDecl(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -4829,6 +4927,14 @@ export class PointerDeclContext extends ParserRuleContext {
 			listener.exitPointerDecl(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: DIVParserVisitor<Result>): Result {
+		if (visitor.visitPointerDecl) {
+			return visitor.visitPointerDecl(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -4866,6 +4972,14 @@ export class InitArrayContext extends ParserRuleContext {
 	public exitRule(listener: DIVParserListener): void {
 		if (listener.exitInitArray) {
 			listener.exitInitArray(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: DIVParserVisitor<Result>): Result {
+		if (visitor.visitInitArray) {
+			return visitor.visitInitArray(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -4913,6 +5027,14 @@ export class InitElemArrayContext extends ParserRuleContext {
 			listener.exitInitElemArray(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: DIVParserVisitor<Result>): Result {
+		if (visitor.visitInitElemArray) {
+			return visitor.visitInitElemArray(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -4951,6 +5073,14 @@ export class StructBodyContext extends ParserRuleContext {
 	public exitRule(listener: DIVParserListener): void {
 		if (listener.exitStructBody) {
 			listener.exitStructBody(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: DIVParserVisitor<Result>): Result {
+		if (visitor.visitStructBody) {
+			return visitor.visitStructBody(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -5012,6 +5142,14 @@ export class DeclProcessContext extends ParserRuleContext {
 			listener.exitDeclProcess(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: DIVParserVisitor<Result>): Result {
+		if (visitor.visitDeclProcess) {
+			return visitor.visitDeclProcess(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -5051,6 +5189,14 @@ export class BodyContext extends ParserRuleContext {
 	public exitRule(listener: DIVParserListener): void {
 		if (listener.exitBody) {
 			listener.exitBody(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: DIVParserVisitor<Result>): Result {
+		if (visitor.visitBody) {
+			return visitor.visitBody(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -5120,6 +5266,14 @@ export class StatementContext extends ParserRuleContext {
 			listener.exitStatement(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: DIVParserVisitor<Result>): Result {
+		if (visitor.visitStatement) {
+			return visitor.visitStatement(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -5148,6 +5302,14 @@ export class ReturnStContext extends ParserRuleContext {
 	public exitRule(listener: DIVParserListener): void {
 		if (listener.exitReturnSt) {
 			listener.exitReturnSt(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: DIVParserVisitor<Result>): Result {
+		if (visitor.visitReturnSt) {
+			return visitor.visitReturnSt(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -5188,6 +5350,14 @@ export class IfStContext extends ParserRuleContext {
 			listener.exitIfSt(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: DIVParserVisitor<Result>): Result {
+		if (visitor.visitIfSt) {
+			return visitor.visitIfSt(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -5218,6 +5388,14 @@ export class LoopStContext extends ParserRuleContext {
 	public exitRule(listener: DIVParserListener): void {
 		if (listener.exitLoopSt) {
 			listener.exitLoopSt(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: DIVParserVisitor<Result>): Result {
+		if (visitor.visitLoopSt) {
+			return visitor.visitLoopSt(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -5257,6 +5435,14 @@ export class WhileStContext extends ParserRuleContext {
 			listener.exitWhileSt(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: DIVParserVisitor<Result>): Result {
+		if (visitor.visitWhileSt) {
+			return visitor.visitWhileSt(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -5292,6 +5478,14 @@ export class RepeatStContext extends ParserRuleContext {
 	public exitRule(listener: DIVParserListener): void {
 		if (listener.exitRepeatSt) {
 			listener.exitRepeatSt(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: DIVParserVisitor<Result>): Result {
+		if (visitor.visitRepeatSt) {
+			return visitor.visitRepeatSt(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -5340,6 +5534,14 @@ export class FromStContext extends ParserRuleContext {
 	public exitRule(listener: DIVParserListener): void {
 		if (listener.exitFromSt) {
 			listener.exitFromSt(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: DIVParserVisitor<Result>): Result {
+		if (visitor.visitFromSt) {
+			return visitor.visitFromSt(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -5401,6 +5603,14 @@ export class ForStContext extends ParserRuleContext {
 	public exitRule(listener: DIVParserListener): void {
 		if (listener.exitForSt) {
 			listener.exitForSt(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: DIVParserVisitor<Result>): Result {
+		if (visitor.visitForSt) {
+			return visitor.visitForSt(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -5511,6 +5721,14 @@ export class SwitchStContext extends ParserRuleContext {
 			listener.exitSwitchSt(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: DIVParserVisitor<Result>): Result {
+		if (visitor.visitSwitchSt) {
+			return visitor.visitSwitchSt(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -5541,6 +5759,14 @@ export class FrameStContext extends ParserRuleContext {
 			listener.exitFrameSt(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: DIVParserVisitor<Result>): Result {
+		if (visitor.visitFrameSt) {
+			return visitor.visitFrameSt(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -5564,6 +5790,14 @@ export class DebugStContext extends ParserRuleContext {
 	public exitRule(listener: DIVParserListener): void {
 		if (listener.exitDebugSt) {
 			listener.exitDebugSt(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: DIVParserVisitor<Result>): Result {
+		if (visitor.visitDebugSt) {
+			return visitor.visitDebugSt(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -5591,6 +5825,14 @@ export class BreakStContext extends ParserRuleContext {
 			listener.exitBreakSt(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: DIVParserVisitor<Result>): Result {
+		if (visitor.visitBreakSt) {
+			return visitor.visitBreakSt(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -5614,6 +5856,14 @@ export class ContinueStContext extends ParserRuleContext {
 	public exitRule(listener: DIVParserListener): void {
 		if (listener.exitContinueSt) {
 			listener.exitContinueSt(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: DIVParserVisitor<Result>): Result {
+		if (visitor.visitContinueSt) {
+			return visitor.visitContinueSt(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -5646,6 +5896,14 @@ export class CloneStContext extends ParserRuleContext {
 	public exitRule(listener: DIVParserListener): void {
 		if (listener.exitCloneSt) {
 			listener.exitCloneSt(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: DIVParserVisitor<Result>): Result {
+		if (visitor.visitCloneSt) {
+			return visitor.visitCloneSt(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -5687,6 +5945,14 @@ export class ScContext extends ParserRuleContext {
 			listener.exitSc(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: DIVParserVisitor<Result>): Result {
+		if (visitor.visitSc) {
+			return visitor.visitSc(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -5709,6 +5975,14 @@ export class ConditionContext extends ParserRuleContext {
 	public exitRule(listener: DIVParserListener): void {
 		if (listener.exitCondition) {
 			listener.exitCondition(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: DIVParserVisitor<Result>): Result {
+		if (visitor.visitCondition) {
+			return visitor.visitCondition(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -5735,6 +6009,14 @@ export class ConstantContext extends ParserRuleContext {
 			listener.exitConstant(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: DIVParserVisitor<Result>): Result {
+		if (visitor.visitConstant) {
+			return visitor.visitConstant(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -5757,6 +6039,14 @@ export class ExpContext extends ParserRuleContext {
 	public exitRule(listener: DIVParserListener): void {
 		if (listener.exitExp) {
 			listener.exitExp(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: DIVParserVisitor<Result>): Result {
+		if (visitor.visitExp) {
+			return visitor.visitExp(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -5792,6 +6082,14 @@ export class EAssignContext extends ParserRuleContext {
 			listener.exitEAssign(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: DIVParserVisitor<Result>): Result {
+		if (visitor.visitEAssign) {
+			return visitor.visitEAssign(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -5822,6 +6120,14 @@ export class AssignOpContext extends ParserRuleContext {
 	public exitRule(listener: DIVParserListener): void {
 		if (listener.exitAssignOp) {
 			listener.exitAssignOp(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: DIVParserVisitor<Result>): Result {
+		if (visitor.visitAssignOp) {
+			return visitor.visitAssignOp(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -5863,6 +6169,14 @@ export class ELogicContext extends ParserRuleContext {
 			listener.exitELogic(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: DIVParserVisitor<Result>): Result {
+		if (visitor.visitELogic) {
+			return visitor.visitELogic(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -5887,6 +6201,14 @@ export class LogicOpContext extends ParserRuleContext {
 	public exitRule(listener: DIVParserListener): void {
 		if (listener.exitLogicOp) {
 			listener.exitLogicOp(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: DIVParserVisitor<Result>): Result {
+		if (visitor.visitLogicOp) {
+			return visitor.visitLogicOp(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -5928,6 +6250,14 @@ export class EComparContext extends ParserRuleContext {
 			listener.exitECompar(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: DIVParserVisitor<Result>): Result {
+		if (visitor.visitECompar) {
+			return visitor.visitECompar(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -5953,6 +6283,14 @@ export class ComparOpContext extends ParserRuleContext {
 	public exitRule(listener: DIVParserListener): void {
 		if (listener.exitComparOp) {
 			listener.exitComparOp(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: DIVParserVisitor<Result>): Result {
+		if (visitor.visitComparOp) {
+			return visitor.visitComparOp(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -6003,6 +6341,14 @@ export class EShiftContext extends ParserRuleContext {
 			listener.exitEShift(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: DIVParserVisitor<Result>): Result {
+		if (visitor.visitEShift) {
+			return visitor.visitEShift(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -6049,6 +6395,14 @@ export class EAddContext extends ParserRuleContext {
 	public exitRule(listener: DIVParserListener): void {
 		if (listener.exitEAdd) {
 			listener.exitEAdd(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: DIVParserVisitor<Result>): Result {
+		if (visitor.visitEAdd) {
+			return visitor.visitEAdd(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -6106,6 +6460,14 @@ export class EMulContext extends ParserRuleContext {
 	public exitRule(listener: DIVParserListener): void {
 		if (listener.exitEMul) {
 			listener.exitEMul(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: DIVParserVisitor<Result>): Result {
+		if (visitor.visitEMul) {
+			return visitor.visitEMul(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -6231,6 +6593,14 @@ export class EUnaryContext extends ParserRuleContext {
 			listener.exitEUnary(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: DIVParserVisitor<Result>): Result {
+		if (visitor.visitEUnary) {
+			return visitor.visitEUnary(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -6270,6 +6640,14 @@ export class EDotContext extends ParserRuleContext {
 			listener.exitEDot(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: DIVParserVisitor<Result>): Result {
+		if (visitor.visitEDot) {
+			return visitor.visitEDot(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -6294,6 +6672,14 @@ export class EPostUnaryContext extends ParserRuleContext {
 	public exitRule(listener: DIVParserListener): void {
 		if (listener.exitEPostUnary) {
 			listener.exitEPostUnary(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: DIVParserVisitor<Result>): Result {
+		if (visitor.visitEPostUnary) {
+			return visitor.visitEPostUnary(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }
@@ -6349,6 +6735,14 @@ export class EAtomContext extends ParserRuleContext {
 			listener.exitEAtom(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: DIVParserVisitor<Result>): Result {
+		if (visitor.visitEAtom) {
+			return visitor.visitEAtom(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -6394,6 +6788,14 @@ export class StructAtomContext extends ParserRuleContext {
 			listener.exitStructAtom(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: DIVParserVisitor<Result>): Result {
+		if (visitor.visitStructAtom) {
+			return visitor.visitStructAtom(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -6436,6 +6838,14 @@ export class PointerSuffixContext extends ParserRuleContext {
 			listener.exitPointerSuffix(this);
 		}
 	}
+	// @Override
+	public accept<Result>(visitor: DIVParserVisitor<Result>): Result {
+		if (visitor.visitPointerSuffix) {
+			return visitor.visitPointerSuffix(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
 }
 
 
@@ -6470,6 +6880,14 @@ export class ParameterContext extends ParserRuleContext {
 	public exitRule(listener: DIVParserListener): void {
 		if (listener.exitParameter) {
 			listener.exitParameter(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: DIVParserVisitor<Result>): Result {
+		if (visitor.visitParameter) {
+			return visitor.visitParameter(this);
+		} else {
+			return visitor.visitChildren(this);
 		}
 	}
 }

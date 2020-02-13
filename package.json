@@ -49,7 +49,7 @@
         "compile": "tsc -p ./",
         "watch": "tsc -watch -p ./",
         "test": "mocha out/test/test.js",
-        "antlr": "antlr4ts -o src antlr/DIVLexer.g4 && antlr4ts -o src antlr/DIVParser.g4"
+        "antlr": "antlr4ts -o src antlr/DIVLexer.g4 && antlr4ts -o src -visitor antlr/DIVParser.g4"
     },
     "devDependencies": {
         "@types/glob": "^7.1.1",
