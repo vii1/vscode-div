@@ -2,7 +2,9 @@
 
 This extension provides language support for DIV Games Studio source files.
 
-https://github.com/vii1/vscode-div
+Project home: https://github.com/vii1/vscode-div
+
+Install from [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=vscode-div.div)
 
 ## Features
 
