@@ -27,7 +27,8 @@
                     "div"
                 ],
                 "extensions": [
-                    ".prg"
+                    ".prg",
+					".PRG"
                 ],
                 "configuration": "./language-configuration.json"
             }
