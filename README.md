@@ -29,12 +29,6 @@ Let me know at https://github.com/vii1/vscode-div/issues if you encounter any is
 
 ## Release Notes
 
-See `CHANGELOG.md` for the full list of changes.
+This version includes very minor changes.
 
-### 0.1.2
- - Bug fixes
-
-### 0.1.0
-
-- Initial release
-- Syntax highlighting
+See `CHANGELOG.md` for the full history of changes.
