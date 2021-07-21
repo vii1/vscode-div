@@ -8,13 +8,15 @@ file: compilerOptions? declProgram declImport* declConst? declGlobal? declLocal?
       body declProcess*
     ;
 
-compilerOptions: COMPILER_OPTIONS ( COMMA | Identifier (ASSIGN constant) )* SEMICOLON;
+compilerOptions: COMPILER_OPTIONS ( COMMA | Identifier (ASSIGN constant)? )* SEMICOLON;
 
 declProgram: (PROGRAM | SETUP_PROGRAM) Identifier sc;
 
 declImport: IMPORT (StringLiteral|Identifier) SEMICOLON;
 
-declConst: CONST SEMICOLON* (Identifier (ASSIGN) constant (SEMICOLON|COMMA)*)*;
+declConst: CONST SEMICOLON* (declSingleConst (SEMICOLON|COMMA)*)*;
+
+declSingleConst: Identifier ASSIGN constant;
 
 declGlobal: GLOBAL SEMICOLON* declVariable*;
 

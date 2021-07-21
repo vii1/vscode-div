@@ -1,4 +1,4 @@
-// Generated from antlr/DIVParser.g4 by ANTLR 4.7.3-SNAPSHOT
+// Generated from antlr/DIVParser.g4 by ANTLR 4.9.0-SNAPSHOT
 
 
 import { ParseTreeVisitor } from "antlr4ts/tree/ParseTreeVisitor";
@@ -8,6 +8,7 @@ import { CompilerOptionsContext } from "./DIVParser";
 import { DeclProgramContext } from "./DIVParser";
 import { DeclImportContext } from "./DIVParser";
 import { DeclConstContext } from "./DIVParser";
+import { DeclSingleConstContext } from "./DIVParser";
 import { DeclGlobalContext } from "./DIVParser";
 import { DeclLocalContext } from "./DIVParser";
 import { DeclPrivateContext } from "./DIVParser";
@@ -99,6 +100,13 @@ export interface DIVParserVisitor<Result> extends ParseTreeVisitor<Result> {
 	 * @return the visitor result
 	 */
 	visitDeclConst?: (ctx: DeclConstContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `DIVParser.declSingleConst`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitDeclSingleConst?: (ctx: DeclSingleConstContext) => Result;
 
 	/**
 	 * Visit a parse tree produced by `DIVParser.declGlobal`.
