@@ -39,10 +39,8 @@ Let me know at https://github.com/vii1/vscode-div/issues if you encounter any is
 
 ## Release Notes
 
-### 0.1.2
- - Bug fixes
+### Added
+- Custom parser powered by [ANTLR4](https://www.antlr.org)
+- Symbol navigation support
 
-### 0.1.0
-
-- Initial release
-- Syntax highlighting
+See `CHANGELOG.md` for the full history of changes.
