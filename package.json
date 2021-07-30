@@ -2,7 +2,7 @@
     "name": "div",
     "displayName": "DIV",
     "description": "Language support for DIV Games Studio",
-    "version": "0.1.3",
+    "version": "0.1.4",
     "icon": "icon.png",
     "author": {
         "name": "vii",
@@ -28,7 +28,7 @@
                 ],
                 "extensions": [
                     ".prg",
-					".PRG"
+                    ".PRG"
                 ],
                 "configuration": "./language-configuration.json"
             }

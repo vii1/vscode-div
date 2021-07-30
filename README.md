@@ -29,6 +29,6 @@ Let me know at https://github.com/vii1/vscode-div/issues if you encounter any is
 
 ## Release Notes
 
-This version includes very minor changes.
+This version adds syntax highlighting for hexadecimal constants.
 
 See `CHANGELOG.md` for the full history of changes.
